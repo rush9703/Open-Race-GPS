@@ -21,7 +21,7 @@ Both versions achieve **25Hz** refresh rates and are fully compatible with **Car
 **Why we recommend this:**
 - **Reliability**: Direct hardware UART to BLE is extremely stable. Connection almost never drops.
 - **Simplicity**: Safest choice for most users. No coding required.
-- **Performance**: M9/Tenet modules often have onboard Flash and handle high frequencies effortlessly.
+- **Performance**: M9n modules often have onboard Flash and handle high frequencies effortlessly.
 
 #### Bill of Materials (BOM)
 | Component | Recommendation | Estimated Price | Notes |
@@ -80,7 +80,7 @@ Open Race GPS 是一个高性能、低成本的开源赛车数据硬件方案。
 **我们为什么更推荐这个：**
 - **极其可靠**：硬件直连比软件桥接更稳，BLE 工作非常可靠，几乎不掉线。
 - **结构简单**：不需要写代码，甚至不需要单片机，接线即用。
-- **高性能**：推荐使用 M9 (如天那特/北天) 模块，自带 Flash 可保存高频配置，轻松跑满 25Hz。
+- **高性能**：推荐使用 M9  模块，自带 Flash 可保存高频配置，轻松跑满 25Hz。
 
 #### 零件清单 (BOM)
 | 组件 | 推荐型号 | 预估价格 | 备注 |
