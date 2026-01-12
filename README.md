@@ -26,8 +26,8 @@ Both versions achieve **25Hz** refresh rates and are fully compatible with **Car
 #### Bill of Materials (BOM)
 | Component | Recommendation | Estimated Price | Notes |
 |-----------|----------------|-----------------|-------|
-| **GNSS Module** | U-blox M9N | ~$20 | |
-| **Bluetooth** | DX-BT36 (BLE+SPP) | ~$3 | **Critical**: Must support BLE for iOS |
+| **GNSS Module** | U-blox M9N | ~$20 | need ust to ttl write config|
+| **Bluetooth** | DX-BT36 (BLE+SPP) | ~$3 | **Critical**: Must support BLE for iOS, need ust to ttl write config| |
 | **Battery** | 18650 Li-ion + 1S BMS | ~$3 | |
 
 #### Wiring
