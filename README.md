@@ -6,31 +6,48 @@
 ## 🇬🇧 English
 
 ### Introduction
-A high-performance, low-cost DIY GPS solution for motorsports telemetry.
-By combining a **U-blox M10 (e.g., M181)** or **M9** chip with a **Bluetooth module (e.g., DX-BT36)**, you can achieve **25Hz** (or 10Hz stable) refresh rates and extremely low latency for under **$40**.
+Open Race GPS is a high-performance, low-cost DIY hardware project for motorsports telemetry. This repository provides two versions of the hardware:
 
-Compared to commercial devices like RaceBox Mini (~$199) or Dragy (~$150), this DIY solution offers comparable performance at a fraction of the cost. It is perfectly compatible with **CarPilot** (iOS) and many other lap timer apps.
+1.  **Lite Version (Beginner)**: Direct Bluetooth pass-through. Easiest to build, ultra-low cost (~$40).
+2.  **Pro Version (Advanced)**: ESP32 + SD Card. Standalone logging (no phone needed) and WiFi telemetry support (~$50).
 
-### Bill of Materials (BOM)
+Both versions achieve **25Hz** refresh rates with U-blox M10/M9 chips and are fully compatible with **CarPilot** (iOS).
+
+---
+
+### Version 1: Lite (Pass-through)
+*Simple, direct connection. The Bluetooth module broadcasts GNSS data directly to your phone.*
+
+#### Bill of Materials (BOM)
 | Component | Recommendation | Estimated Price | Notes |
 |-----------|----------------|-----------------|-------|
-| **GNSS Module** | Walksnail WS-M181 (M10) / Beitian MI-M10 | ~$15 - $20 | Must support U-blox protocol |
-| **Bluetooth** | DX-BT36 (BLE+SPP) | ~$3 - $5 | Supports iOS BLE connection |
-| **Battery** | 18650 Li-ion + 1S BMS | ~$3 | Or any 3.7V Lipo |
-| **Case** | 3D Printed / Generic Box | ~$2 | STL files included (TBD) |
+| **GNSS Module** | U-blox M9 or M10 (e.g., Beitian BN-220) | ~$15 | |
+| **Bluetooth** | DX-BT36 (BLE+SPP) | ~$3 | **Critical**: Must support BLE for iOS |
+| **Battery** | 18650 Li-ion + 1S BMS | ~$3 | |
 
-### Wiring Guide
-In the simplest "Pass-through" mode, you don't even need a microcontroller (ESP32/Arduino). The Bluetooth module directly broadcasts the GNSS data.
-
-**Connection:**
+#### Wiring
 - **GNSS TX**  -> **Bluetooth RX**
 - **GNSS RX**  -> **Bluetooth TX**
-- **GNSS VCC** -> **Battery + (3.3V-5V)**
-- **GNSS GND** -> **Battery -**
-- **BT VCC**   -> **Battery +**
-- **BT GND**   -> **Battery -**
+- **VCC/GND**  -> **Battery +/-**
 
-> **Note:** Ensure your GNSS module configuration (Baud Rate) matches your Bluetooth module's default baud rate (usually 9600 or 115200). It is highly recommended to configure both to **115200** for high-frequency data.
+---
+
+### Version 2: Pro (ESP32 + SD Logging)
+*Smart logger. Records data to SD card even without a phone connection. Supports WiFi AP mode for data download.*
+
+#### Bill of Materials (BOM)
+| Component | Recommendation | Estimated Price | Notes |
+|-----------|----------------|-----------------|-------|
+| **GNSS Module** | Walksnail WS-M181 (M10) | ~$20 | 25Hz Capable |
+| **Controller**| ESP32-C3 / ESP32 DevKit | ~$5 | |
+| **SD Card**   | MicroSD Module + SPI | ~$2 | |
+| **Battery**   | 18650 / LiPo | ~$5 | |
+
+#### Wiring
+- **GNSS TX** -> **ESP32 RX (GPIO x)**
+- **GNSS RX** -> **ESP32 TX (GPIO y)**
+- **SD CS**   -> **ESP32 GPIO z**
+- *(See `firmware/` folder for pin definitions)*
 
 ---
 
@@ -38,28 +55,42 @@ In the simplest "Pass-through" mode, you don't even need a microcontroller (ESP3
 ## 🇨🇳 中文
 
 ### 简介
-一个高性能、低成本的赛车数据记录 GPS 硬件方案。
-通过将 **U-blox M10 (如 M181)** 或 **M9** 定位芯片与 **蓝牙模块 (如 DX-BT36)** 组合，你可以以低于 **300元人民币** 的成本，获得媲美专业设备（如 RaceBox Mini, Dragy）的 **25Hz** 刷新率和极低延迟。
+Open Race GPS 是一个高性能、低成本的开源赛车数据硬件方案。本项目提供两个版本：
 
-本硬件完美支持 **CarPilot** (iOS) 以及其他支持外接 BLE GPS 的圈速软件。
+1.  **Lite 简易版**: 蓝牙透传。制作最简单，无需编程，成本极低（< 300元）。
+2.  **Pro以此类推专业版**: ESP32 + SD卡。支持脱机记录（无需手机也能记录数据），支持 WiFi 下载数据。
 
-### 零件清单 (BOM)
+两个版本均支持 **25Hz** 刷新率（基于 U-blox M10/M9），完美支持 **CarPilot** (iOS)。
+
+---
+
+### 版本 1: Lite (简易透传版)
+*最简单的方案。蓝牙模块直接把 GPS 数据转发给手机。*
+
+#### 零件清单 (BOM)
 | 组件 | 推荐型号 | 预估价格 | 备注 |
 |---|---|---|---|
-| **GNSS 定位模块** | 蜗牛 Walksnail WS-M181 (M10) / 北天 MI-M10 | ~100元 | 核心部件，必须支持 U-blox |
-| **蓝牙模块** | DX-BT36 (双模) | ~15元 | 必须支持 BLE 以连接 iOS |
-| **电池** | 18650 锂电池 + 保护板 | ~10元 | 或任意 3.7V 聚合物锂电池 |
-| **外壳** | 3D打印 / 通用塑料盒 | ~5元 | 后续将提供 STL 文件 |
+| **GNSS 模块** | U-blox M9 或 M10 (如北天 BN-220) | ~80元 | |
+| **蓝牙模块** | DX-BT36 (双模) | ~15元 | **注意**: 必须支持 BLE 以连接 iPhone |
+| **电池** | 18650 锂电池 + 保护板 | ~10元 | |
 
-### 接线指南 (小白版)
-在最简单的“透传模式”下，你甚至不需要单片机 (ESP32/Arduino)。蓝牙模块会直接把 GPS 数据广播给手机。
+#### 接线
+- **GPS TX**  -> **蓝牙 RX**
+- **GPS RX**  -> **蓝牙 TX**
+- **VCC/GND** -> **电池 +/-**
 
-**接线方式：**
-- **GPS 的 TX**  -> 接 -> **蓝牙的 RX**
-- **GPS 的 RX**  -> 接 -> **蓝牙的 TX**
-- **GPS 的 VCC** -> 接 -> **电池正极 (+)**
-- **GPS 的 GND** -> 接 -> **电池负极 (-)**
-- **蓝牙的 VCC** -> 接 -> **电池正极 (+)**
-- **蓝牙的 GND** -> 接 -> **电池负极 (-)**
+---
 
-> **注意**：请务必确保 GPS 模块的波特率与蓝牙模块一致。推荐使用 **115200** 波特率以支持 10Hz/25Hz 的高频数据传输。
+### 版本 2: Pro (ESP32 脱机记录版)
+*智能记录仪。即使不带手机上车，插入 SD 卡即可自动记录数据。支持 WiFi 热点下载。*
+
+#### 零件清单 (BOM)
+| 组件 | 推荐型号 | 预估价格 | 备注 |
+|---|---|---|---|
+| **GNSS 模块** | 蜗牛 Walksnail WS-M181 (M10) | ~100元 | 支持 25Hz |
+| **主控** | ESP32-C3 / ESP32 开发板 | ~25元 | |
+| **SD卡模块** | MicroSD SPI 模块 | ~5元 | |
+| **电池** | 18650 / 聚合物锂电池 | ~15元 | |
+
+#### 接线与固件
+请查看 `firmware/` 文件夹获取详细的 ESP32 接线图和固件代码。
