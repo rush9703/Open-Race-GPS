@@ -30,6 +30,7 @@ Most ESP32 development boards use the **CH340** or **CP2102** USB-to-Serial chip
     *   Open **Tools -> Board -> Boards Manager**.
     *   Search for **"esp32"** (by Espressif Systems).
     *   Click **Install** (Version 2.0.x or 3.0.x are both fine).
+    *   *Note: This firmware uses standard ESP32 libraries (`BLE`, `WiFi`, `FS`, `SD`, `SPI`) included in this package. No extra libraries needed.*
 4.  **Select Board**:
     *   Go to **Tools -> Board -> esp32**.
     *   Select **"ESP32 Dev Module"** (This is the most compatible option for WROOM-32 boards).
@@ -46,6 +47,10 @@ Most ESP32 development boards use the **CH340** or **CP2102** USB-to-Serial chip
     *   **Flash Mode**: QIO (default) or DIO (if QIO fails).
 3.  **Upload**:
     *   Click the **Arrow Icon (➜)** or press `Cmd+U` / `Ctrl+U` to Compile and Upload.
+4.  **Monitor & Debug**:
+    *   Once uploaded, open **Tools -> Serial Monitor**.
+    *   Set Baud Rate to **115200**.
+    *   You should see `=== CarPilot GPS v2.0 ===` and logs like `[GPS Boot]`.
 4.  **Troubleshooting (Connecting...)**:
     *   If you see `Connecting........_____.....` and it fails:
     *   **Press and hold the BOOT button** on the ESP32 board when "Connecting..." appears.
@@ -79,6 +84,7 @@ Most ESP32 development boards use the **CH340** or **CP2102** USB-to-Serial chip
     *   打开 **工具 (Tools) -> 开发板 (Board) -> 开发板管理器 (Boards Manager)**。
     *   搜索 **"esp32"** (作者是 Espressif Systems)。
     *   点击 **安装 (Install)**。
+    *   *注: 本固件使用 ESP32 标准库 (`BLE`, `WiFi`, `FS`, `SD`, `SPI`)，无需安装额外第三方库。*
 4.  **选择开发板**:
     *   前往 **工具 (Tools) -> 开发板 (Board) -> esp32**。
     *   选择 **"ESP32 Dev Module"** (这是最通用的 WROOM-32 选项)。
@@ -95,6 +101,10 @@ Most ESP32 development boards use the **CH340** or **CP2102** USB-to-Serial chip
     *   **Flash Mode**: QIO (默认) 或 DIO (如果 QIO 失败)。
 3.  **上传 (Upload)**:
     *   点击界面上的 **向右箭头图标 (➜)**，或按 `Cmd+U` / `Ctrl+U` 开始编译并上传。
+4.  **监控与调试**:
+    *   上传成功后，打开 **工具 (Tools) -> 串口监视器 (Serial Monitor)**。
+    *   将波特率设置为 **115200**。
+    *   你应该能看到 `=== CarPilot GPS v2.0 ===` 以及 `[GPS Boot]` 等启动日志。
 4.  **故障排除 (Connecting...)**:
     *   如果在底部看到 `Connecting........_____.....` 并且最终失败：
     *   当出现 "Connecting..." 时，**按住 ESP32 板子上的 BOOT 按钮**。
