@@ -57,7 +57,7 @@ Both versions achieve **25Hz** refresh rates and are fully compatible with **Car
 - **GNSS TX** -> **ESP32 RX (GPIO x)**
 - **GNSS RX** -> **ESP32 TX (GPIO y)**
 - **SD CS**   -> **ESP32 GPIO z**
-- *(See `firmware/` folder for pin definitions)*
+- *(See `Standalone_Logger_ESP32_M10_SD/firmware/` folder for pin definitions)*
 
 ---
 
@@ -113,4 +113,4 @@ Open Race GPS 是一个高性能、低成本的开源赛车数据硬件方案。
 | **电池** | 18650 / 聚合物锂电池 | ~15元 | |
 
 #### 接线与固件
-请查看 `firmware/` 文件夹获取详细的 ESP32 接线图和固件代码。
+请查看 `Standalone_Logger_ESP32_M10_SD/firmware/` 文件夹获取详细的 ESP32 接线图和固件代码。
