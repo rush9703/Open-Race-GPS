@@ -6,22 +6,22 @@
 ## 🇬🇧 English
 
 ### Introduction
-Open Race GPS is a high-performance, low-cost DIY hardware project for motorsports telemetry. This repository provides two versions of the hardware:
+Open Race GPS is a high-performance, low-cost DIY hardware project for motorsports telemetry. This repository provides two versions with different capabilities:
 
-1.  **Lite Version (Beginner)**: Direct Bluetooth pass-through. Easiest to build, ultra-low cost (~$40).
-2.  **Pro Version (Advanced)**: ESP32 + SD Card. Standalone logging (no phone needed) and WiFi telemetry support (~$50).
+1.  **Direct Bluetooth Model (M9 + DBX36)**: 🌟 **Highly Recommended**. Simple structure, extremely reliable BLE connection. Requires phone connection.
+2.  **Standalone Logger Model (ESP32 + SD)**: Supports recording **VBO files** to SD card without a phone. Supports WiFi data download.
 
-Both versions achieve **25Hz** refresh rates with U-blox M10/M9 chips and are fully compatible with **CarPilot** (iOS).
+Both versions achieve **25Hz** refresh rates and are fully compatible with **CarPilot** (iOS).
 
 ---
 
-### Version 1: Lite (Pass-through) - 🌟 Highly Recommended
-*Simple, direct connection. The Bluetooth module broadcasts GNSS data directly to your phone.*
+### Version 1: Direct Bluetooth (M9 + DBX36) - 🌟 Highly Recommended
+*Pure hardware passthrough. The Bluetooth module broadcasts GNSS data directly to your phone.*
 
 **Why we recommend this:**
-- **Simplicity**: No coding, no microcontroller, just wire it up.
-- **Reliability**: Direct hardware UART to BLE is often more stable than software bridging.
-- **Performance**: U-blox M9/Tenet modules often have onboard Flash (save settings permanently) and handle 25Hz effortlessly alongside other constellations.
+- **Reliability**: Direct hardware UART to BLE is extremely stable. Connection almost never drops.
+- **Simplicity**: Safest choice for most users. No coding required.
+- **Performance**: M9/Tenet modules often have onboard Flash and handle high frequencies effortlessly.
 
 #### Bill of Materials (BOM)
 | Component | Recommendation | Estimated Price | Notes |
@@ -37,8 +37,13 @@ Both versions achieve **25Hz** refresh rates with U-blox M10/M9 chips and are fu
 
 ---
 
-### Version 2: Pro (ESP32 + SD Logging)
-*Smart logger. Records data to SD card even without a phone connection. Supports WiFi AP mode for data download.*
+### Version 2: Standalone Logger (ESP32 + M10 + SD)
+*A standalone VBO logger. Records session data to SD card in `.vbo` format even without a phone connection.*
+
+**Key Features:**
+- **Standalone**: Can record independently.
+- **VBO Format**: Saves data directly in professional VBO format.
+- **WiFi Support**: Acts as an AP for downloading files wirelessly.
 
 #### Bill of Materials (BOM)
 | Component | Recommendation | Estimated Price | Notes |
@@ -60,22 +65,22 @@ Both versions achieve **25Hz** refresh rates with U-blox M10/M9 chips and are fu
 ## 🇨🇳 中文
 
 ### 简介
-Open Race GPS 是一个高性能、低成本的开源赛车数据硬件方案。本项目提供两个版本：
+Open Race GPS 是一个高性能、低成本的开源赛车数据硬件方案。本项目提供两种不同功能版本的硬件：
 
-1.  **Lite 简易版**: 蓝牙透传。制作最简单，无需编程，成本极低（< 300元）。
-2.  **Pro以此类推专业版**: ESP32 + SD卡。支持脱机记录（无需手机也能记录数据），支持 WiFi 下载数据。
+1.  **蓝牙直连版 (Bluetooth Direct)**: 🌟 **强烈推荐**。结构简单，BLE 连接极其稳定可靠。使用时需连接手机 App。
+2.  **脱机记录版 (Standalone Logger)**: ESP32 + SD卡。支持脱离手机独立记录，生成 **VBO 格式**文件，支持 WiFi 数据下载。
 
 两个版本均支持 **25Hz** 刷新率（基于 U-blox M10/M9），完美支持 **CarPilot** (iOS)。
 
 ---
 
-### 版本 1: Lite (简易透传版) - 🌟 强烈推荐
-*最简单的方案。蓝牙模块直接把 GPS 数据转发给手机。*
+### 版本 1: 蓝牙直连版 (M9 + DBX36) - 🌟 强烈推荐
+*纯硬件直通方案。蓝牙模块直接把 GPS 数据广播给手机。*
 
-**推荐理由：**
-- **结构简单**：不需要单片机也不用写代码，连几根线就能用。
-- **更加可靠**：硬件直连通常比软件桥接更稳定，BLE 连接不断连。
-- **性能优势**：推荐使用 **M9 (如北天/天那特)** 模块，它们通常自带 Flash (掉电保存配置)，且处理 25Hz 高频数据更轻松。
+**我们为什么更推荐这个：**
+- **极其可靠**：硬件直连比软件桥接更稳，BLE 工作非常可靠，几乎不掉线。
+- **结构简单**：不需要写代码，甚至不需要单片机，接线即用。
+- **高性能**：推荐使用 M9 (如天那特/北天) 模块，自带 Flash 可保存高频配置，轻松跑满 25Hz。
 
 #### 零件清单 (BOM)
 | 组件 | 推荐型号 | 预估价格 | 备注 |
@@ -91,8 +96,13 @@ Open Race GPS 是一个高性能、低成本的开源赛车数据硬件方案。
 
 ---
 
-### 版本 2: Pro (ESP32 脱机记录版)
-*智能记录仪。即使不带手机上车，插入 SD 卡即可自动记录数据。支持 WiFi 热点下载。*
+### 版本 2: 脱机记录版 (ESP32 + M10 + SD)
+*智能记录仪。支持不插手机，直接将数据以 **VBO** 专业格式记录到 SD 卡中。支持 WiFi 热点下载。*
+
+**核心功能：**
+- **独立工作**：不需要带手机上车也能记录。
+- **VBO 格式**：生成的日志文件可直接用于专业软件分析或 CarPilot 导入。
+- **WiFi 下载**：通过 HTTP 服务器无线下载数据。
 
 #### 零件清单 (BOM)
 | 组件 | 推荐型号 | 预估价格 | 备注 |
