@@ -15,8 +15,13 @@ Both versions achieve **25Hz** refresh rates with U-blox M10/M9 chips and are fu
 
 ---
 
-### Version 1: Lite (Pass-through)
+### Version 1: Lite (Pass-through) - 🌟 Highly Recommended
 *Simple, direct connection. The Bluetooth module broadcasts GNSS data directly to your phone.*
+
+**Why we recommend this:**
+- **Simplicity**: No coding, no microcontroller, just wire it up.
+- **Reliability**: Direct hardware UART to BLE is often more stable than software bridging.
+- **Performance**: U-blox M9/Tenet modules often have onboard Flash (save settings permanently) and handle 25Hz effortlessly alongside other constellations.
 
 #### Bill of Materials (BOM)
 | Component | Recommendation | Estimated Price | Notes |
@@ -64,8 +69,13 @@ Open Race GPS 是一个高性能、低成本的开源赛车数据硬件方案。
 
 ---
 
-### 版本 1: Lite (简易透传版)
+### 版本 1: Lite (简易透传版) - 🌟 强烈推荐
 *最简单的方案。蓝牙模块直接把 GPS 数据转发给手机。*
+
+**推荐理由：**
+- **结构简单**：不需要单片机也不用写代码，连几根线就能用。
+- **更加可靠**：硬件直连通常比软件桥接更稳定，BLE 连接不断连。
+- **性能优势**：推荐使用 **M9 (如北天/天那特)** 模块，它们通常自带 Flash (掉电保存配置)，且处理 25Hz 高频数据更轻松。
 
 #### 零件清单 (BOM)
 | 组件 | 推荐型号 | 预估价格 | 备注 |
