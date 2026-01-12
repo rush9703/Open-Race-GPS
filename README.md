@@ -26,7 +26,7 @@ Both versions achieve **25Hz** refresh rates and are fully compatible with **Car
 #### Bill of Materials (BOM)
 | Component | Recommendation | Estimated Price | Notes |
 |-----------|----------------|-----------------|-------|
-| **GNSS Module** | U-blox M9 or M10 (e.g., Beitian BN-220) | ~$15 | |
+| **GNSS Module** | U-blox M9 | ~$20 | |
 | **Bluetooth** | DX-BT36 (BLE+SPP) | ~$3 | **Critical**: Must support BLE for iOS |
 | **Battery** | 18650 Li-ion + 1S BMS | ~$3 | |
 
@@ -48,7 +48,7 @@ Both versions achieve **25Hz** refresh rates and are fully compatible with **Car
 #### Bill of Materials (BOM)
 | Component | Recommendation | Estimated Price | Notes |
 |-----------|----------------|-----------------|-------|
-| **GNSS Module** | Walksnail WS-M181 (M10) | ~$20 | 25Hz Capable |
+| **GNSS Module** | Ublox M10 | ~$15 | 10Hz Capable, no flash |
 | **Controller**| ESP32-C3 / ESP32 DevKit | ~$5 | |
 | **SD Card**   | MicroSD Module + SPI | ~$2 | |
 | **Battery**   | 18650 / LiPo | ~$5 | |
