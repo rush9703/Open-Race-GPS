@@ -26,7 +26,7 @@ Both versions achieve **25Hz** refresh rates and are fully compatible with **Car
 #### Bill of Materials (BOM)
 | Component | Recommendation | Estimated Price | Notes |
 |-----------|----------------|-----------------|-------|
-| **GNSS Module** | U-blox M9 | ~$20 | |
+| **GNSS Module** | U-blox M9N | ~$20 | |
 | **Bluetooth** | DX-BT36 (BLE+SPP) | ~$3 | **Critical**: Must support BLE for iOS |
 | **Battery** | 18650 Li-ion + 1S BMS | ~$3 | |
 
@@ -48,7 +48,7 @@ Both versions achieve **25Hz** refresh rates and are fully compatible with **Car
 #### Bill of Materials (BOM)
 | Component | Recommendation | Estimated Price | Notes |
 |-----------|----------------|-----------------|-------|
-| **GNSS Module** | Ublox M10 | ~$15 | 10Hz Capable, no flash |
+| **GNSS Module** | Max M10s | ~$15 | 10Hz Capable, no flash， need esp32 write config to GPS after power off |
 | **Controller**| ESP32-C3 / ESP32 DevKit | ~$5 | |
 | **SD Card**   | MicroSD Module + SPI | ~$2 | |
 | **Battery**   | 18650 / LiPo | ~$5 | |
@@ -85,7 +85,7 @@ Open Race GPS 是一个高性能、低成本的开源赛车数据硬件方案。
 #### 零件清单 (BOM)
 | 组件 | 推荐型号 | 预估价格 | 备注 |
 |---|---|---|---|
-| **GNSS 模块** | U-blox M9 或 M10 (如北天 BN-220) | ~80元 | |
+| **GNSS 模块** | U-blox M9N | ~80元 | |
 | **蓝牙模块** | DX-BT36 (双模) | ~15元 | **注意**: 必须支持 BLE 以连接 iPhone |
 | **电池** | 18650 锂电池 + 保护板 | ~10元 | |
 
@@ -107,7 +107,7 @@ Open Race GPS 是一个高性能、低成本的开源赛车数据硬件方案。
 #### 零件清单 (BOM)
 | 组件 | 推荐型号 | 预估价格 | 备注 |
 |---|---|---|---|
-| **GNSS 模块** | 蜗牛 Walksnail WS-M181 (M10) | ~100元 | 支持 25Hz |
+| **GNSS 模块** | Max-M10s | ~40元 | 支持 10Hz,没有flash，断电需要重新写入配置，必须ESP32 |
 | **主控** | ESP32-C3 / ESP32 开发板 | ~25元 | |
 | **SD卡模块** | MicroSD SPI 模块 | ~5元 | |
 | **电池** | 18650 / 聚合物锂电池 | ~15元 | |
